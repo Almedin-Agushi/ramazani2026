@@ -32,3 +32,26 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
+    }
+  });
+  document.querySelector('.carousel-track')
+    .style.transform = `translateX(-${index * 100}%)`;
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+
+// Lëviz automatikisht çdo 4 sekonda
+setInterval(nextSlide, 4000);
+
+showSlide(currentIndex);
