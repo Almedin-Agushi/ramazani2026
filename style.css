@@ -13,17 +13,17 @@ html, body {
 }
 
 body {
-  background: url("mosque.jpg") no-repeat center center fixed,
-              linear-gradient(180deg, #1f1b19, #12100f);
+  background: url("mosque.jpg") no-repeat center center fixed;
   background-size: cover;
-  color: #f5f3f2;
-  font-family: "Segoe UI", Arial, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
 }
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); /* shton një shtresë të errët */
+}
+
 
 /* Tekstet me hije për lexueshmëri */
 .mosque-name, .subtitle, .title, .box span, .box small,
